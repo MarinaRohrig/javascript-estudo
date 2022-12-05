@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+
+    <input type="text" id="produto">
+    <button id="btn"> Cadastrar produto</button>
+
+    <ul>
+        <li>Arroz</li>
+        <li>Macarrão</li>
+        <li>Feijão</li>
+    </ul>
+
+    <script>
+        let $lista = document.querySelector('ul');
+        let $produto = document.querySelector('#produto');
+        let $botao = document.querySelector('#btn');
+
+        $botao.addEventListener('click', addProd());
+
+
+            function addProd() {
+                // adiciona o que foi digitado e cria uma li 
+                var item = '<li>' + $produto.value + '</li>';
+                // passa o item e a li para a lista já existente
+                $lista.innerHTML += item;
+                // limpa o campo de input 
+                $produto.value = '';
+                // deixa o no campo input após inserir o item
+                $produto.focus();
+            }
+            // conseguir adicionar o produto com enter 
+            $produto.addEventListener('keyup', function(e){
+                if (e.keyCode === 13){
+                    addProd();
+                }
+            })
+    </script>
+</body>
+
+</html>

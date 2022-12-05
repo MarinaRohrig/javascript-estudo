@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // salva a data atual
+        
+        // salva uma chave e um valor na aba armazenamento do navegador
+       
+
+        // recupera o valor salvo 
+        const valorRecuperado = localStorage.getItem("LISTA");
+        let listaDatas = [];
+        if (valorRecuperado == null){
+            listaDatas.push(new Date());
+            localStorage.setItem("LISTA",JSON.stringify(listaDatas));
+    }else{
+        listaDatas = JSON.parse(valorRecuperado);
+        listaDatas.push(new Date());
+        localStorage.setItem("LISTA",JSON.stringify(listaDatas))
+    }
+
+        for(let item of listaDatas){
+            const p = document.createElement("p");
+            p.innerText = item;
+            document.body.append(item);
+        }
+
+        // remove item 
+        // localStorage.removeItem("ultimaDataRegistrada");
+
+      //  console.log(localStorage);
+
+       // JSON.parse() // transforma um string em objeto
+       // JSON.stringify() // converte para string
+    </script>
+</body>
+</html>
